@@ -24,13 +24,21 @@ namespace GadgeteerFlexor
     public partial class Program
     {
 
-
+        /**
+        * Determina el pin que esta conectado al transistor que activa los motores de vibracion
+        */
         private GT.Interfaces.DigitalOutput vibrationControl;
 
+        /**
+        * Define las entradas analogas que miden los valores de los sensores de presion y flexor
+        */
         private GT.Interfaces.AnalogInput analogPressureMeter;
         private GT.Interfaces.AnalogInput analogFlexorMeter;
         
 
+        /**
+        * Define la conexion con la matriz
+        */
         private GTM.Efelunte.Adafruit_BicolorMatrix matrix;
 
         private GT.Timer intervalTimer;
@@ -53,6 +61,9 @@ namespace GadgeteerFlexor
 
         void ProgramStarted()
         {
+            /**
+            * Iniciliza los modulos conectados con Gadgeteer
+            */
 
             Socket10 = GT.Socket.GetSocket(10, true, null, null);
 
@@ -70,6 +81,9 @@ namespace GadgeteerFlexor
 
             peripheral_manager = new PeripheralManager(graphics, vibrationControl, analogPressureMeter, analogFlexorMeter);
 
+            /**
+            * Determina un timer y una funcion que se ejecuta cada 100 millis
+            */
             intervalTimer = new GT.Timer(100);
             intervalTimer.Tick += new GT.Timer.TickEventHandler(TimerTick);
             intervalTimer.Start();

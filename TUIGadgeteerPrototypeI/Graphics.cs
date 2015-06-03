@@ -9,6 +9,10 @@ using Gadgeteer.Modules.GHIElectronics;
 
 namespace GadgeteerFlexor
 {
+
+    /**
+    * Esta clase se encarga de manejar el LED Display 8x8, correponde a una adaptacion de los codigos dados para Arduino en Adafruit
+    */    
     class Graphics
     {
         static public byte[] smile_bmp = new byte[8]{

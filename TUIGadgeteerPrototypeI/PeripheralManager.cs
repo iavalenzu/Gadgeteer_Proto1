@@ -52,7 +52,9 @@ namespace GadgeteerFlexor
         
         }
 
-
+        /**
+        * Inicia la vibracion
+        */
         public void generaVibracion()
         {
 
@@ -61,6 +63,9 @@ namespace GadgeteerFlexor
             vibraPelota = true;
         }
 
+        /**
+        * Apaga la vibracion
+        */
         public void apagaVibracion()
         {
             Debug.Print("Se apaga el motor vibrador!!");
@@ -68,10 +73,16 @@ namespace GadgeteerFlexor
             vibraPelota = false;
         }
 
+        /**
+        * Determina si los motores de vibracion estan encendidos
+        */
         public bool estaVibrando() {
             return vibraPelota;
         }
 
+        /**
+        * Se encarga se medir el voltaje asociado a los puertos analogos de los sensores de presion y flexor
+        */
         public void measurePressure()
         {
 
@@ -99,16 +110,25 @@ namespace GadgeteerFlexor
 */            
         }
 
+        /**
+        * Determina si la pelota esta bajo presion comparado los valores de los sensores
+        */
         public bool isPressed()
         {
             return forcePressureValue > 3.280 || forceFlexorValue < 0.760;
         }
 
+        /**
+        * Retorna la cara actual
+        */
         public int obtieneActualCara() 
         {
             return current_face;
         }
 
+        /**
+        * Modifica la cara actual que muestra la pantalla en el orden: SMILE_YELLOW > NORMAL_YELLOW > NORMAL_RED > SMILE_GREEN
+        */
         public void cambiaActualCara()
         {
             switch (current_face)
